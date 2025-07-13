@@ -3,6 +3,6 @@
 
 #include "../sala/sala.h"
 
-int buscaBinaria(Sala salas[], int n, const char* numero);
+int buscaBinaria(Sala salas[], int n, const char *numero);
 
 #endif

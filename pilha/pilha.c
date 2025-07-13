@@ -3,41 +3,50 @@
 #include <string.h>
 #include "pilha.h"
 
-void initPilha(Pilha* p) {
+void initPilha(Pilha *p)
+{
     p->top = NULL;
 }
 
-void push(Pilha* p, const char* salaNum) {
-    PilhaNode* novo = (PilhaNode*)malloc(sizeof(PilhaNode));
+void push(Pilha *p, const char *salaNum)
+{
+    PilhaNode *novo = (PilhaNode *)malloc(sizeof(PilhaNode));
     strcpy(novo->salaNumero, salaNum);
     novo->next = p->top;
     p->top = novo;
 }
 
-int pop(Pilha* p, char* salaNum) {
-    if (p->top == NULL) return 0;
-    PilhaNode* temp = p->top;
+int pop(Pilha *p, char *salaNum)
+{
+    if (p->top == NULL)
+        return 0;
+    PilhaNode *temp = p->top;
     strcpy(salaNum, temp->salaNumero);
     p->top = temp->next;
     free(temp);
     return 1;
 }
 
-void mostrarPilha(Pilha* p) {
-    PilhaNode* aux = p->top;
-    if (aux == NULL) {
+void mostrarPilha(Pilha *p)
+{
+    PilhaNode *aux = p->top;
+    if (aux == NULL)
+    {
         printf("Nenhuma reserva no historico.\n");
         return;
     }
-    while (aux != NULL) {
+    while (aux != NULL)
+    {
         printf("Sala: %s\n", aux->salaNumero);
         aux = aux->next;
     }
 }
 
-void liberarPilha(Pilha* p) {
+void liberarPilha(Pilha *p)
+{
     char temp[10];
-    while (pop(p, temp)) {
+    while (pop(p, temp))
+    {
         // libera todos os nós
     }
 }
