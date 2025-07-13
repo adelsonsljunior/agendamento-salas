@@ -1,8 +1,3 @@
-/* Arquivo: main.c
- * Localização: /projeto_agendamento/
- * Arquivo principal do sistema de agendamento de salas.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
