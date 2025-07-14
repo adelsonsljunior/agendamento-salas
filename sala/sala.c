@@ -3,6 +3,7 @@
 #include <string.h>
 #include "sala.h"
 
+// Dados pre-definidos de salas
 Sala salasFixas[MAX_SALAS] = {
     {"S101", 1, ""},
     {"S102", 1, ""},
