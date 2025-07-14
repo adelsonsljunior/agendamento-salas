@@ -1,3 +1,6 @@
+#makefile output
+agendamento
+
 # Prerequisites
 *.d
 
