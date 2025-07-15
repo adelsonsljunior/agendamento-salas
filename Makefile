@@ -9,8 +9,7 @@ OBJ = main.o \
       sala/sala.o \
       fila/fila.o \
       pilha/pilha.o \
-      busca/busca.o \
-      utils/csv.o
+      busca/busca.o
 
 all: agendamento
 
@@ -34,9 +33,6 @@ pilha/pilha.o: pilha/pilha.c pilha/pilha.h
 
 busca/busca.o: busca/busca.c busca/busca.h
 	$(CC) $(CFLAGS) -c busca/busca.c -o busca/busca.o
-
-utils/csv.o: utils/csv.c utils/csv.h
-	$(CC) $(CFLAGS) -c utils/csv.c -o utils/csv.o
 
 clean:
 	rm -f *.o professor/*.o sala/*.o fila/*.o pilha/*.o busca/*.o utils/*.o agendamento
