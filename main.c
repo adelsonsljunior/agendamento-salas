@@ -49,13 +49,15 @@ int main()
     int opcao;
     char salaEscolhida[10];
 
+    // Loop que permite o login sem encerra o programa
     while (1)
     {
 
         ProfNode *professorLogado = login(raizProfessores);
         if (!professorLogado)
             continue;
-
+            
+        // Loop do menu principal
         do
         {
             printf("\nMenu:\n");
