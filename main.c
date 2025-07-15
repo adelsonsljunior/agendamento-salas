@@ -32,9 +32,9 @@ int main()
     printf("=== Sistema de Agendamento de Salas ===\n");
     printf("Login:\n");
     printf("Codigo: ");
-    scanf("%9s", cod);
+    scanf("%s", cod);
     printf("Senha: ");
-    scanf("%9s", senha);
+    scanf("%s", senha);
 
     professorLogado = buscarProfessor(raizProfessores, cod);
     if (!professorLogado || strcmp(professorLogado->prof.senha, senha) != 0)
@@ -74,7 +74,7 @@ int main()
             break;
         case 3:
             printf("Digite o numero da sala para reservar: ");
-            scanf("%9s", salaEscolhida);
+            scanf("%s", salaEscolhida);
 
             SalaNode *salaNode = buscarSala(raizSalas, salaEscolhida);
             if (!salaNode)
