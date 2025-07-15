@@ -10,11 +10,11 @@ void iniciarPilha(Pilha *p)
 }
 
 // Adiciona um novo nó na pilha
-void push(Pilha *p, const char *salaNum, const char *professorCod)
+void push(Pilha *p, const char *salaNum, const char *professorNome)
 {
     PilhaNode *novo = (PilhaNode *)malloc(sizeof(PilhaNode));
     strcpy(novo->salaNumero, salaNum);
-    strcpy(novo->professorCod, professorCod);
+    strcpy(novo->professorNome, professorNome);
     novo->next = p->top;
     p->top = novo;
 }
@@ -43,7 +43,7 @@ void mostrarPilha(Pilha *p)
     }
     while (aux != NULL)
     {
-        printf("Sala: %s | Professor: %s", aux->salaNumero, aux->professorCod);
+        printf("Sala: %s | Professor: %s\n", aux->salaNumero, aux->professorNome);
         aux = aux->next;
     }
 }
