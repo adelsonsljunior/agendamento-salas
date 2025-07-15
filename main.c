@@ -7,9 +7,6 @@
 #include "fila/fila.h"
 #include "pilha/pilha.h"
 #include "busca/busca.h"
-#include "utils/csv.h"
-
-#define ARQUIVO_RESERVAS "reservas.csv"
 
 int main()
 {
@@ -61,7 +58,6 @@ int main()
         printf("3 - Reservar sala\n");
         printf("4 - Cancelar reserva\n");
         printf("5 - Visualizar historico de reservas\n");
-        printf("6 - Listar reservas gravadas (CSV)\n");
         printf("0 - Sair\n");
         printf("Opcao: ");
         scanf("%d", &opcao);
@@ -91,7 +87,6 @@ int main()
                     salaNode->sala.livre = 0;
                     strcpy(salaNode->sala.professorCod, professorLogado->prof.cod);
                     push(&historico, salaEscolhida);
-                    gravarReservaCSV(ARQUIVO_RESERVAS, professorLogado->prof.cod, salaEscolhida);
                     printf("Sala %s reservada com sucesso!\n", salaEscolhida);
                 }
                 else
@@ -143,9 +138,6 @@ int main()
         case 5:
             printf("Historico de reservas:\n");
             mostrarPilha(&historico);
-            break;
-        case 6:
-            lerReservasCSV(ARQUIVO_RESERVAS);
             break;
         case 0:
             printf("Saindo...\n");
