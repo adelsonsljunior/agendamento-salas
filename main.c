@@ -6,7 +6,6 @@
 #include "sala/sala.h"
 #include "fila/fila.h"
 #include "pilha/pilha.h"
-#include "busca/busca.h"
 
 ProfNode *login(ProfNode *raizProfessores)
 {
