@@ -7,8 +7,11 @@
 Professor professoresFixos[MAX_PROFESSORES] = {
     {"P01", "Cledja Rolim", "cledja@ifal.edu.br", "1234"},
     {"P02", "Tarsis Marinho", "tarsis@ifal.edu.br", "1234"},
-    {"P03", "Fernando Antonio", "fernando@ifal.edu.br", "1234"}};
+    {"P03", "Fernando Antonio", "fernando@ifal.edu.br", "1234"},
+    {"P04", "Mauricio Junior", "mauricio@ifal.edu.br", "1234"},
+    {"P05", "Igor Rocha", "igor@ifal.edu.br", "1234"}};
 
+// Adiciona os professores predefinidos na árvore
 void carregarProfessores(ProfNode **raiz)
 {
     *raiz = NULL;
@@ -18,6 +21,7 @@ void carregarProfessores(ProfNode **raiz)
     }
 }
 
+// Insere um novo professor na árvore
 ProfNode *inserirProfessor(ProfNode *raiz, Professor p)
 {
     if (raiz == NULL)
@@ -34,6 +38,7 @@ ProfNode *inserirProfessor(ProfNode *raiz, Professor p)
     return raiz;
 }
 
+// Busca um professor pelo código
 ProfNode *buscarProfessor(ProfNode *raiz, const char *cod)
 {
     if (raiz == NULL)
@@ -47,6 +52,7 @@ ProfNode *buscarProfessor(ProfNode *raiz, const char *cod)
         return buscarProfessor(raiz->prox, cod);
 }
 
+// Libera a memória alocada para a árvore de professores
 void liberarArvoreProfessores(ProfNode *raiz)
 {
     if (raiz == NULL)

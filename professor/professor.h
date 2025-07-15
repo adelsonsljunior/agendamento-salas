@@ -1,7 +1,7 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 
-#define MAX_PROFESSORES 3
+#define MAX_PROFESSORES 5
 
 typedef struct Professor
 {

@@ -9,8 +9,14 @@ Sala salasFixas[MAX_SALAS] = {
     {"S102", 1, ""},
     {"S103", 1, ""},
     {"S104", 1, ""},
-    {"S105", 1, ""}};
+    {"S105", 1, ""},
+    {"S106", 1, ""},
+    {"S107", 1, ""},
+    {"S108", 1, ""},
+    {"S109", 1, ""},
+    {"S110", 1, ""}};
 
+// Adiciona as salas predefinidas na árvore
 void carregarSalas(SalaNode **raiz)
 {
     *raiz = NULL;
@@ -20,6 +26,7 @@ void carregarSalas(SalaNode **raiz)
     }
 }
 
+// Insere uma nova sala na árvore
 SalaNode *inserirSala(SalaNode *raiz, Sala s)
 {
     if (raiz == NULL)
@@ -36,6 +43,7 @@ SalaNode *inserirSala(SalaNode *raiz, Sala s)
     return raiz;
 }
 
+// Busca uma sala pelo número
 SalaNode *buscarSala(SalaNode *raiz, const char *numero)
 {
     if (raiz == NULL)
@@ -49,6 +57,7 @@ SalaNode *buscarSala(SalaNode *raiz, const char *numero)
         return buscarSala(raiz->prox, numero);
 }
 
+// Lista todas as salas
 void listarSalas(SalaNode *raiz)
 {
     if (raiz == NULL)
@@ -58,6 +67,7 @@ void listarSalas(SalaNode *raiz)
     listarSalas(raiz->prox);
 }
 
+// Lista as salas disponíveis
 void listarSalasDisponiveis(SalaNode *raiz)
 {
     if (raiz == NULL)
@@ -68,6 +78,7 @@ void listarSalasDisponiveis(SalaNode *raiz)
     listarSalasDisponiveis(raiz->prox);
 }
 
+// Libera a memória alocada para a árvore de salas
 void liberarArvoreSalas(SalaNode *raiz)
 {
     if (raiz == NULL)

@@ -1,7 +1,7 @@
 #ifndef SALA_H
 #define SALA_H
 
-#define MAX_SALAS 5
+#define MAX_SALAS 10
 
 typedef struct Sala
 {
