@@ -13,7 +13,7 @@ typedef struct Sala
 typedef struct SalaNode
 {
     Sala sala;
-    struct SalaNode *esq, *dir;
+    struct SalaNode *ant, *prox;
 } SalaNode;
 
 void carregarSalas(SalaNode **raiz);
