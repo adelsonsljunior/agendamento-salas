@@ -12,7 +12,7 @@ typedef struct
     FilaNode *front, *rear;
 } Fila;
 
-void initFila(Fila *f);
+void iniciarFila(Fila *f);
 int filaVazia(Fila *f);
 void enfileirar(Fila *f, const char *profCod);
 void desenfileirar(Fila *f, char *profCod);

@@ -18,9 +18,9 @@ int main()
     // Inicializar filas de espera para cada sala
     for (int i = 0; i < MAX_SALAS; i++)
     {
-        initFila(&filasEspera[i]);
+        iniciarFila(&filasEspera[i]);
     }
-    initPilha(&historico);
+    iniciarPilha(&historico);
 
     // Carregar dados fixos
     carregarProfessores(&raizProfessores);
@@ -92,7 +92,7 @@ int main()
             else
             {
                 printf("Sala ocupada, adicionando na fila de espera.\n");
-                int idx = buscarIndiceSala(raizSalas, salaEscolhida);
+                int idx = buscarIndiceSala(salaEscolhida);
                 if (idx >= 0)
                 {
                     enfileirar(&filasEspera[idx], professorLogado->prof.cod);
@@ -111,7 +111,7 @@ int main()
                     printf("Reserva da sala %s cancelada.\n", salaEscolhida);
 
                     // Atender fila de espera
-                    int idx = buscarIndiceSala(raizSalas, salaEscolhida);
+                    int idx = buscarIndiceSala(salaEscolhida);
                     if (idx >= 0)
                     {
                         char proxProf[10];

@@ -10,7 +10,7 @@ typedef struct {
     PilhaNode *top;
 } Pilha;
 
-void initPilha(Pilha* p);
+void iniciarPilha(Pilha* p);
 void push(Pilha* p, const char* salaNum);
 int pop(Pilha* p, char* salaNum);
 void mostrarPilha(Pilha* p);

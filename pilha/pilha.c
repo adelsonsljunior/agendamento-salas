@@ -3,7 +3,7 @@
 #include <string.h>
 #include "pilha.h"
 
-void initPilha(Pilha *p)
+void iniciarPilha(Pilha *p)
 {
     p->top = NULL;
 }

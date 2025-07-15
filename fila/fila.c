@@ -3,7 +3,7 @@
 #include <string.h>
 #include "fila.h"
 
-void initFila(Fila *f)
+void iniciarFila(Fila *f)
 {
     f->front = f->rear = NULL;
 }

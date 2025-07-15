@@ -78,7 +78,7 @@ void liberarArvoreSalas(SalaNode *raiz)
 }
 
 // Função auxiliar para buscar índice da sala no vetor fixo (para filasEspera[])
-int buscarIndiceSala(SalaNode *raiz, const char *numero)
+int buscarIndiceSala(const char *numero)
 {
     for (int i = 0; i < MAX_SALAS; i++)
     {

@@ -24,6 +24,6 @@ void listarSalasDisponiveis(SalaNode *raiz);
 void liberarArvoreSalas(SalaNode *raiz);
 
 // Retorna índice da sala para filas (necessário para filasEspera[])
-int buscarIndiceSala(SalaNode *raiz, const char *numero);
+int buscarIndiceSala(const char *numero);
 
 #endif
