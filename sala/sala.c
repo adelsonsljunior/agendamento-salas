@@ -26,13 +26,13 @@ SalaNode *inserirSala(SalaNode *raiz, Sala s)
     {
         SalaNode *novo = (SalaNode *)malloc(sizeof(SalaNode));
         novo->sala = s;
-        novo->esq = novo->dir = NULL;
+        novo->ant = novo->prox = NULL;
         return novo;
     }
     if (strcmp(s.numero, raiz->sala.numero) < 0)
-        raiz->esq = inserirSala(raiz->esq, s);
+        raiz->ant = inserirSala(raiz->ant, s);
     else
-        raiz->dir = inserirSala(raiz->dir, s);
+        raiz->prox = inserirSala(raiz->prox, s);
     return raiz;
 }
 
@@ -44,36 +44,36 @@ SalaNode *buscarSala(SalaNode *raiz, const char *numero)
     if (cmp == 0)
         return raiz;
     else if (cmp < 0)
-        return buscarSala(raiz->esq, numero);
+        return buscarSala(raiz->ant, numero);
     else
-        return buscarSala(raiz->dir, numero);
+        return buscarSala(raiz->prox, numero);
 }
 
 void listarSalasInOrder(SalaNode *raiz)
 {
     if (raiz == NULL)
         return;
-    listarSalasInOrder(raiz->esq);
+    listarSalasInOrder(raiz->ant);
     printf("Sala %s - %s\n", raiz->sala.numero, raiz->sala.livre ? "Livre" : "Ocupada");
-    listarSalasInOrder(raiz->dir);
+    listarSalasInOrder(raiz->prox);
 }
 
 void listarSalasDisponiveis(SalaNode *raiz)
 {
     if (raiz == NULL)
         return;
-    listarSalasDisponiveis(raiz->esq);
+    listarSalasDisponiveis(raiz->ant);
     if (raiz->sala.livre)
         printf("Sala %s - Livre\n", raiz->sala.numero);
-    listarSalasDisponiveis(raiz->dir);
+    listarSalasDisponiveis(raiz->prox);
 }
 
 void liberarArvoreSalas(SalaNode *raiz)
 {
     if (raiz == NULL)
         return;
-    liberarArvoreSalas(raiz->esq);
-    liberarArvoreSalas(raiz->dir);
+    liberarArvoreSalas(raiz->ant);
+    liberarArvoreSalas(raiz->prox);
     free(raiz);
 }
 

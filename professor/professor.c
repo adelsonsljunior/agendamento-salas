@@ -24,13 +24,13 @@ ProfNode *inserirProfessor(ProfNode *raiz, Professor p)
     {
         ProfNode *novo = (ProfNode *)malloc(sizeof(ProfNode));
         novo->prof = p;
-        novo->esq = novo->dir = NULL;
+        novo->ant = novo->prox = NULL;
         return novo;
     }
     if (strcmp(p.cod, raiz->prof.cod) < 0)
-        raiz->esq = inserirProfessor(raiz->esq, p);
+        raiz->ant = inserirProfessor(raiz->ant, p);
     else
-        raiz->dir = inserirProfessor(raiz->dir, p);
+        raiz->prox = inserirProfessor(raiz->prox, p);
     return raiz;
 }
 
@@ -42,16 +42,16 @@ ProfNode *buscarProfessor(ProfNode *raiz, const char *cod)
     if (cmp == 0)
         return raiz;
     else if (cmp < 0)
-        return buscarProfessor(raiz->esq, cod);
+        return buscarProfessor(raiz->ant, cod);
     else
-        return buscarProfessor(raiz->dir, cod);
+        return buscarProfessor(raiz->prox, cod);
 }
 
 void liberarArvoreProfessores(ProfNode *raiz)
 {
     if (raiz == NULL)
         return;
-    liberarArvoreProfessores(raiz->esq);
-    liberarArvoreProfessores(raiz->dir);
+    liberarArvoreProfessores(raiz->ant);
+    liberarArvoreProfessores(raiz->prox);
     free(raiz);
 }

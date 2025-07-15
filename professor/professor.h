@@ -14,7 +14,7 @@ typedef struct Professor
 typedef struct ProfNode
 {
     Professor prof;
-    struct ProfNode *esq, *dir;
+    struct ProfNode *ant, *prox;
 } ProfNode;
 
 void carregarProfessores(ProfNode **raiz);
