@@ -86,7 +86,7 @@ int main()
             {
                 salaNode->sala.livre = 0;
                 strcpy(salaNode->sala.professorCod, professorLogado->prof.cod);
-                push(&historico, salaEscolhida);
+                push(&historico, salaEscolhida, professorLogado->prof.cod);
                 printf("Sala %s reservada com sucesso!\n", salaEscolhida);
             }
             else
