@@ -49,13 +49,13 @@ SalaNode *buscarSala(SalaNode *raiz, const char *numero)
         return buscarSala(raiz->prox, numero);
 }
 
-void listarSalasInOrder(SalaNode *raiz)
+void listarSalas(SalaNode *raiz)
 {
     if (raiz == NULL)
         return;
-    listarSalasInOrder(raiz->ant);
+    listarSalas(raiz->ant);
     printf("Sala %s - %s\n", raiz->sala.numero, raiz->sala.livre ? "Livre" : "Ocupada");
-    listarSalasInOrder(raiz->prox);
+    listarSalas(raiz->prox);
 }
 
 void listarSalasDisponiveis(SalaNode *raiz)

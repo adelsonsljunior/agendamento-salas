@@ -66,7 +66,7 @@ int main()
         {
         case 1:
             printf("\nTodas as salas:\n");
-            listarSalasInOrder(raizSalas);
+            listarSalas(raizSalas);
             break;
         case 2:
             printf("\nSalas disponiveis:\n");
@@ -75,30 +75,30 @@ int main()
         case 3:
             printf("Digite o numero da sala para reservar: ");
             scanf("%9s", salaEscolhida);
+
+            SalaNode *salaNode = buscarSala(raizSalas, salaEscolhida);
+            if (!salaNode)
             {
-                SalaNode *salaNode = buscarSala(raizSalas, salaEscolhida);
-                if (!salaNode)
+                printf("Sala nao encontrada.\n");
+                break;
+            }
+            if (salaNode->sala.livre)
+            {
+                salaNode->sala.livre = 0;
+                strcpy(salaNode->sala.professorCod, professorLogado->prof.cod);
+                push(&historico, salaEscolhida);
+                printf("Sala %s reservada com sucesso!\n", salaEscolhida);
+            }
+            else
+            {
+                printf("Sala ocupada, adicionando na fila de espera.\n");
+                int idx = buscarIndiceSala(raizSalas, salaEscolhida);
+                if (idx >= 0)
                 {
-                    printf("Sala nao encontrada.\n");
-                    break;
-                }
-                if (salaNode->sala.livre)
-                {
-                    salaNode->sala.livre = 0;
-                    strcpy(salaNode->sala.professorCod, professorLogado->prof.cod);
-                    push(&historico, salaEscolhida);
-                    printf("Sala %s reservada com sucesso!\n", salaEscolhida);
-                }
-                else
-                {
-                    printf("Sala ocupada, adicionando na fila de espera.\n");
-                    int idx = buscarIndiceSala(raizSalas, salaEscolhida);
-                    if (idx >= 0)
-                    {
-                        enfileirar(&filasEspera[idx], professorLogado->prof.cod);
-                    }
+                    enfileirar(&filasEspera[idx], professorLogado->prof.cod);
                 }
             }
+
             break;
         case 4:
             if (pop(&historico, salaEscolhida))

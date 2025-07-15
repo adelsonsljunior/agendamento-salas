@@ -19,7 +19,7 @@ typedef struct SalaNode
 void carregarSalas(SalaNode **raiz);
 SalaNode *inserirSala(SalaNode *raiz, Sala s);
 SalaNode *buscarSala(SalaNode *raiz, const char *numero);
-void listarSalasInOrder(SalaNode *raiz);
+void listarSalas(SalaNode *raiz);
 void listarSalasDisponiveis(SalaNode *raiz);
 void liberarArvoreSalas(SalaNode *raiz);
 
