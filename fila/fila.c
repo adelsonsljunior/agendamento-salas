@@ -8,11 +8,13 @@ void iniciarFila(Fila *f)
     f->front = f->rear = NULL;
 }
 
+// Verifica se a fila está vazia
 int filaVazia(Fila *f)
 {
     return (f->front == NULL);
 }
 
+// Adiciona um novo professor à fila
 void enfileirar(Fila *f, const char *profCod)
 {
     FilaNode *novo = (FilaNode *)malloc(sizeof(FilaNode));
@@ -30,6 +32,7 @@ void enfileirar(Fila *f, const char *profCod)
     }
 }
 
+// Remove o professor do início da fila e retorna seu código
 void desenfileirar(Fila *f, char *profCod)
 {
     if (filaVazia(f))
@@ -48,6 +51,7 @@ void desenfileirar(Fila *f, char *profCod)
     free(temp);
 }
 
+// Libera a memória alocada para a fila
 void liberarFila(Fila *f)
 {
     while (!filaVazia(f))
@@ -57,6 +61,7 @@ void liberarFila(Fila *f)
     }
 }
 
+// Verifica se um professor está na fila
 int estaNaFila(Fila *f, const char *profCod)
 {
     FilaNode *atual = f->front;
