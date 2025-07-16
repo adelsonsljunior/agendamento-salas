@@ -24,6 +24,7 @@ int pop(Pilha *p, char *salaNum)
 {
     if (p->top == NULL)
         return 0;
+
     PilhaNode *temp = p->top;
     strcpy(salaNum, temp->salaNumero);
     p->top = temp->next;
@@ -56,4 +57,42 @@ void liberarPilha(Pilha *p)
     {
         // libera todos os nós
     }
+}
+
+int cancelarReserva(Pilha *p, const char *professorCod, char *salaCancelada)
+{
+    Pilha temp;
+    iniciarPilha(&temp);
+    int encontrado = 0;
+
+    while (p->top != NULL)
+    {
+        PilhaNode *topo = p->top;
+        if (strcmp(topo->professorNome, professorCod) == 0 && !encontrado)
+        {
+            strcpy(salaCancelada, topo->salaNumero);
+            PilhaNode *remover = p->top;
+            p->top = remover->next;
+            free(remover);
+            encontrado = 1;
+            break;
+        }
+        else
+        {
+            push(&temp, topo->salaNumero, topo->professorNome);
+            PilhaNode *remover = p->top;
+            p->top = remover->next;
+            free(remover);
+        }
+    }
+
+    while (temp.top != NULL)
+    {
+        push(p, temp.top->salaNumero, temp.top->professorNome);
+        PilhaNode *remover = temp.top;
+        temp.top = remover->next;
+        free(remover);
+    }
+
+    return encontrado;
 }

@@ -17,5 +17,6 @@ int filaVazia(Fila *f);
 void enfileirar(Fila *f, const char *profCod);
 void desenfileirar(Fila *f, char *profCod);
 void liberarFila(Fila *f);
+int estaNaFila(Fila *f, const char *profCod);
 
 #endif

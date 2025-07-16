@@ -18,6 +18,7 @@ void enfileirar(Fila *f, const char *profCod)
     FilaNode *novo = (FilaNode *)malloc(sizeof(FilaNode));
     strcpy(novo->professorCod, profCod);
     novo->next = NULL;
+
     if (filaVazia(f))
     {
         f->front = f->rear = novo;
@@ -36,11 +37,14 @@ void desenfileirar(Fila *f, char *profCod)
         profCod[0] = '\0';
         return;
     }
+
     FilaNode *temp = f->front;
     strcpy(profCod, temp->professorCod);
     f->front = f->front->next;
+
     if (f->front == NULL)
         f->rear = NULL;
+
     free(temp);
 }
 
@@ -51,4 +55,16 @@ void liberarFila(Fila *f)
         char temp[10];
         desenfileirar(f, temp);
     }
+}
+
+int estaNaFila(Fila *f, const char *profCod)
+{
+    FilaNode *atual = f->front;
+    while (atual != NULL)
+    {
+        if (strcmp(atual->professorCod, profCod) == 0)
+            return 1;
+        atual = atual->next;
+    }
+    return 0;
 }
